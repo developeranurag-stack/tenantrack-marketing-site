@@ -8,7 +8,7 @@ This repo is a static marketing site: [index.html](index.html) (the main landing
 
 To preview a page, just open it directly in a browser (or serve the directory with any static file server). This site is deployed to **GoDaddy hosting via a GitHub-linked deploy**, which serves files as-is over Apache with no clean-URL rewriting — so all internal links use plain filenames (`terms.html`, `privacy.html`, `refund.html`), not extension-less paths like `/terms`. Keep new pages linked the same way unless a `.htaccess` rewrite is added.
 
-**`terms.html`, `privacy.html`, and `refund.html` are placeholder boilerplate** (see the disclaimer banner on each page) — none has been reviewed by a lawyer and must not be treated as vetted legal text. `privacy.html` names Paddle as the payment processor/merchant of record and includes CCPA-specific rights language (US + California scope); `refund.html` states a no-refunds/cancel-anytime policy and deliberately does not name Paddle. `terms.html`'s billing section links to `refund.html` — keep that cross-reference in sync if the refund stance changes.
+**`terms.html`, `privacy.html`, and `refund.html` are placeholder boilerplate** — none has been reviewed by a lawyer and must not be treated as vetted legal text, even though the on-page disclaimer banner that used to say so has been removed at the site owner's request. `privacy.html` names Paddle as the payment processor/merchant of record and includes CCPA-specific rights language (US + California scope); `refund.html` states a no-refunds/cancel-anytime policy and deliberately does not name Paddle. `terms.html`'s billing section links to `refund.html` — keep that cross-reference in sync if the refund stance changes.
 
 ## Structure of index.html
 
