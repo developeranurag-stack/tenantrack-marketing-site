@@ -130,7 +130,7 @@ img{max-width:100%; display:block;}
 nav.site-nav{display:flex; align-items:center; gap:28px;}
 nav.site-nav a{text-decoration:none; font-weight:500; font-size:0.95rem; opacity:0.85;}
 nav.site-nav a:hover{opacity:1;}
-.btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:11px 22px; border-radius:10px; font-weight:600; font-size:0.95rem; text-decoration:none; border:1px solid transparent; cursor:pointer;}
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:11px 22px; border-radius:10px; font-weight:600; font-size:0.95rem; text-decoration:none; border:1px solid transparent; cursor:pointer; white-space:nowrap;}
 .btn-primary{background:var(--green); color:#0d2417;}
 .btn-primary:hover{background:var(--green-dark); color:#fff;}
 .btn-outline{border-color:var(--border); background:transparent;}
@@ -237,6 +237,11 @@ section{padding:80px 0;}
   .feature-grid{grid-template-columns:1fr;}
   .pricing-grid{grid-template-columns:1fr;}
   .trust-strip .wrap{flex-direction:column; gap:10px;}
+  .brand{font-size:1.05rem; gap:8px;}
+  .brand img{width:30px; height:30px;}
+  .site-header .wrap{flex-wrap:wrap; row-gap:10px;}
+  .nav-cta{gap:8px; margin-left:auto;}
+  .nav-cta .btn{padding:8px 14px; font-size:0.8rem;}
 }
 </style>
 </head>
@@ -511,6 +516,11 @@ section{padding:80px 0;}
           <a href="terms.html">Terms of Service</a>
           <a href="privacy.html">Privacy Policy</a>
           <a href="refund.html">Refund Policy</a>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <a href="https://instagram.com/tenantrackapp" target="_blank" rel="noopener">@tenantrackapp</a>
+          <a href="mailto:tenantracksupport@gmail.com">tenantracksupport@gmail.com</a>
         </div>
       </div>
     </div>
