@@ -1,0 +1,9 @@
+{
+  "name": "tenantrack-marketing-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Static marketing site for TenanTrack. No build step — devDependencies are for local visual testing only.",
+  "devDependencies": {
+    "playwright": "^1.61.1"
+  }
+}
