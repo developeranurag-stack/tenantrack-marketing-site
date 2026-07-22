@@ -138,19 +138,16 @@ nav.site-nav a:hover{opacity:1;}
 .nav-cta{display:flex; align-items:center; gap:14px;}
 
 /* Mobile nav toggle */
-.nav-toggle{position:absolute; width:1px; height:1px; overflow:hidden; opacity:0;}
-.nav-toggle-label{display:none; flex-direction:column; justify-content:center; gap:5px; width:40px; height:40px; padding:0; border-radius:8px; cursor:pointer;}
-.nav-toggle-label span{display:block; width:22px; height:2px; margin:0 auto; background:var(--ink); border-radius:2px; transition:transform 0.2s ease, opacity 0.2s ease;}
-.nav-toggle:focus-visible ~ .wrap .nav-toggle-label{outline:2px solid var(--green); outline-offset:2px;}
-.nav-toggle:checked ~ .wrap .nav-toggle-label span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-.nav-toggle:checked ~ .wrap .nav-toggle-label span:nth-child(2){opacity:0;}
-.nav-toggle:checked ~ .wrap .nav-toggle-label span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-.mobile-nav{display:flex; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:var(--bg); max-height:0; overflow:hidden; opacity:0; pointer-events:none; transition:max-height 0.25s ease, opacity 0.2s ease, box-shadow 0.2s ease;}
-.nav-toggle:checked ~ .mobile-nav{max-height:480px; opacity:1; pointer-events:auto; border-bottom:1px solid var(--border); box-shadow:var(--shadow);}
-body:has(:target) .nav-toggle:checked ~ .mobile-nav{max-height:0; opacity:0; pointer-events:none; border-bottom:none; box-shadow:none;}
-body:has(:target) .nav-toggle:checked ~ .wrap .nav-toggle-label span:nth-child(1){transform:none;}
-body:has(:target) .nav-toggle:checked ~ .wrap .nav-toggle-label span:nth-child(2){opacity:1;}
-body:has(:target) .nav-toggle:checked ~ .wrap .nav-toggle-label span:nth-child(3){transform:none;}
+.nav-toggle-wrap{display:none; position:relative; width:40px; height:40px;}
+.nav-toggle-label{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; border-radius:8px; cursor:pointer; text-decoration:none;}
+.nav-toggle-label:focus-visible{outline:2px solid var(--green); outline-offset:2px;}
+.nav-toggle-open{flex-direction:column; gap:5px;}
+.nav-toggle-open span{display:block; width:22px; height:2px; background:var(--ink); border-radius:2px;}
+.nav-toggle-close{display:none; font-size:1.5rem; line-height:1; color:var(--ink);}
+header:has(.mobile-nav:target) .nav-toggle-open{display:none;}
+header:has(.mobile-nav:target) .nav-toggle-close{display:flex;}
+.mobile-nav{position:fixed; top:69px; left:0; right:0; z-index:19; display:flex; flex-direction:column; background:var(--bg); max-height:calc(100vh - 69px); overflow-y:auto; opacity:0; transform:translateY(-8px); pointer-events:none; border-bottom:1px solid var(--border); box-shadow:var(--shadow); transition:opacity 0.2s ease, transform 0.2s ease;}
+.mobile-nav:target{opacity:1; transform:translateY(0); pointer-events:auto;}
 .mobile-nav a{text-decoration:none; font-weight:500; font-size:1rem; padding:16px 24px; border-bottom:1px solid var(--border);}
 .mobile-nav-ctas{display:flex; gap:12px; padding:18px 24px;}
 .mobile-nav-ctas .btn{flex:1;}
@@ -252,7 +249,7 @@ section{padding:80px 0; scroll-margin-top:70px;}
   .pricing-grid{grid-template-columns:repeat(2,1fr);}
   nav.site-nav{display:none;}
   .nav-cta{display:none;}
-  .nav-toggle-label{display:flex;}
+  .nav-toggle-wrap{display:block;}
   .value-list{grid-template-columns:1fr;}
   section{padding:60px 0;}
 }
@@ -272,7 +269,6 @@ section{padding:80px 0; scroll-margin-top:70px;}
 <body>
 
 <header class="site-header">
-  <input type="checkbox" id="nav-toggle" class="nav-toggle">
   <div class="wrap">
     <a class="brand" href="#top"><img src="static/icon.png" alt="TenanTrack logo"><span>Tenan<span class="brand-green">Track</span></span></a>
     <nav class="site-nav" aria-label="Primary">
@@ -286,13 +282,17 @@ section{padding:80px 0; scroll-margin-top:70px;}
       <a class="btn btn-outline" href="https://tenantrack-257544703838.us-west2.run.app/" target="_blank" rel="noopener">Log In</a>
       <a class="btn btn-primary" href="https://tenantrack-257544703838.us-west2.run.app/" target="_blank" rel="noopener">Get Started Free</a>
     </div>
-    <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </label>
+    <div class="nav-toggle-wrap">
+      <a href="#mobile-nav" class="nav-toggle-label nav-toggle-open" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </a>
+      <a href="#close-menu" class="nav-toggle-label nav-toggle-close" aria-label="Close menu">&times;</a>
+    </div>
   </div>
-  <nav class="mobile-nav" aria-label="Mobile">
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile">
     <a href="#features">Features</a>
     <a href="#how-it-works">How It Works</a>
+    <a href="#demo">Demo</a>
     <a href="#pricing">Pricing</a>
     <a href="#faq">FAQ</a>
     <div class="mobile-nav-ctas">
